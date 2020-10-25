@@ -30,15 +30,35 @@ public class ThirdPersonMovement : MonoBehaviour
     public float knockBackTime;
     public float knockBackCounter;
 
+    //Pause obj
+    GameObject[] pauseObjs;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1;
+        pauseObjs = GameObject.FindGameObjectsWithTag("ShowOnPause");
+        hidePaused();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                showPaused();
+            }
+            else if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+                hidePaused();
+            }    
+            
+        }
+
         if (knockBackCounter <= 0)
         {
 
@@ -99,5 +119,21 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector3 direction = new Vector3(0f,0f,-1f);
 
         controller.Move(direction * knockBackForce * Time.deltaTime); 
+    }
+
+    public void showPaused() 
+    {
+        foreach(GameObject g in pauseObjs) 
+        {
+                g.SetActive(true);
+        }
+    }
+
+    public void hidePaused() 
+    {
+        foreach(GameObject g in pauseObjs) 
+        {
+                g.SetActive(false);
+        }
     }
 }

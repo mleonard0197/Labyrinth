@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Hint
   - Death
+  - Key
+  - Spikes
+  - ShowOnPause
   layers:
   - Default
   - TransparentFX

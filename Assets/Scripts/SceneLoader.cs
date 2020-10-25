@@ -31,13 +31,21 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadSpecificScene()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneNum);
+    }
+
+    public static void LoadGameOver() 
+    {
+        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene("End Screen");
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
 
 }
 

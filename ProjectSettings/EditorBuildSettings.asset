@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Screen.unity
     guid: 6eb141666eb90d14ba175d1c85b4ff34
   - enabled: 1
-    path: Assets/Scenes/TestMove.unity
-    guid: 8b92ccdd1027b364bb6f5bd109ee0714
+    path: Assets/Scenes/TestTutorial.unity
+    guid: 0d2f315decd3bba4fbbdd1a47daebad5
   - enabled: 1
     path: Assets/Scenes/End Screen.unity
     guid: f4f38756271034946ae3da04bca32a1f
+  - enabled: 1
+    path: Assets/Scenes/Credits Scene.unity
+    guid: 81abab76c3903f54cb3a89dc4d875922
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/TestMenu.unity
+    guid: b260fa5eff4933d4ea460d09ea7699c8
+  - enabled: 0
+    path: Assets/Scenes/Test Scenes/TestMove.unity
+    guid: 8b92ccdd1027b364bb6f5bd109ee0714
   m_configObjects: {}
