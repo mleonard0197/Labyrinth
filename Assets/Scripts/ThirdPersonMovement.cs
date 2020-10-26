@@ -6,6 +6,9 @@ public class ThirdPersonMovement : MonoBehaviour
 {
     public CharacterController controller;
 
+    //Animations
+    public GameObject[] erikaList;
+
     //Camera turn speed
     public float horizontalSpeed = 2.0f;
     //Character move speed
@@ -64,6 +67,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
+
             if (isGrounded && velocity.y < 0) 
             {
                 velocity.y = -2f;
@@ -98,8 +102,57 @@ public class ThirdPersonMovement : MonoBehaviour
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
+            if (!isGrounded)
+            {
+                erikaList[1].SetActive(false);
+                erikaList[2].SetActive(false);
+                erikaList[3].SetActive(false);
+                erikaList[4].SetActive(false);
+                erikaList[5].SetActive(false);
+                //erikaList[6].SetActive(false);
+                erikaList[0].SetActive(true);
+            }
+            else if (isGrounded && vertical > 0)
+            {
+                erikaList[0].SetActive(false);
+                erikaList[2].SetActive(false);
+                erikaList[3].SetActive(false);
+                erikaList[4].SetActive(false);
+                erikaList[5].SetActive(false);
+               // erikaList[6].SetActive(false);
+                erikaList[1].SetActive(true);
+            }
+            else if (isGrounded && vertical == 0)
+            {
+                erikaList[0].SetActive(false);
+                erikaList[1].SetActive(false);
+                erikaList[3].SetActive(false);
+                erikaList[4].SetActive(false);
+                erikaList[5].SetActive(false);
+               // erikaList[6].SetActive(false);
+                erikaList[2].SetActive(true);
+            }
+            else if (!isGrounded && vertical < 0)
+            {
+                erikaList[0].SetActive(false);
+                erikaList[1].SetActive(false);
+                erikaList[2].SetActive(false);
+                erikaList[4].SetActive(false);
+                erikaList[5].SetActive(false);
+                //erikaList[6].SetActive(false);
+                erikaList[3].SetActive(true);
+            }
+            else if (isGrounded && vertical < 0)
+            {
+                erikaList[0].SetActive(false);
+                erikaList[1].SetActive(false);
+                erikaList[2].SetActive(false);
+                erikaList[4].SetActive(false);
+                erikaList[3].SetActive(false);
+                //erikaList[6].SetActive(false);
+                erikaList[5].SetActive(true);
+            }
 
-            
 
             controller.Move(velocity * Time.deltaTime);
         }
